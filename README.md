@@ -8,6 +8,7 @@ Tasks to complete:
 GitHub useful commands:
 
 - git clone [https_link]: clones the repository to your local drive (if on Windows, make sure you're not in a OneDrive managed folder)
+- git pull: "re-clones" the repository to your local drive
 - git branch : shows which branch you are currently in (default is main)
 - git branch [name]: creates a new branch for which you are working in your local repo
 - git checkout [branch_name]: switches over to a new branch to work your local repo (Try to keep all of your individual changes in one branch to make merging easy)
