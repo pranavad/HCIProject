@@ -1,1 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
+        #lower-body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: lightyellow;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #search-bar {
+            width: 95%;
+            flex-grow: 1;
+            text-align: center;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 30px;
+            font-weight: 500;
+        }
+
+        #search-area {
+            width: 95%;
+            height: 15%;
+            border-color: brown;
+            text-align: center;
+            padding-bottom: 1%;
+            padding-top: 1%;
+        }
+
+        #results {
+            margin: 3%;
+            padding: 20px;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .result-button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        #exit-button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            outline: none;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <header>
+        <button id="exit-button">Back to Home</button>
+    </header>
+
+    <div id="lower-body">
+
+        <div id="search-area">
+            <h2>Search for an interest...</h2>
+            <input type="text" id="search-bar" placeholder="Search...">
+            <h2>Or explore popular communities as they float by...</h2>
+        </div>
+
+        <div id="results"></div>
+
+    </div>
+
+    
+
+    <script>
+        // Sample results
+        const sampleResults = [
+            "Result 1",
+            "Result 2",
+            "Result 3",
+            "Result 4",
+            "Result 5"
+        ];
+
+        // Function to display results as buttons
+        function displayResults() {
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = ''; // Clear previous results
+
+            sampleResults.forEach(result => {
+                const button = document.createElement('button');
+                button.classList.add('result-button');
+                button.textContent = result;
+                resultsContainer.appendChild(button);
+            });
+        }
+
+        // Event listener for search bar
+        document.getElementById('search-bar').addEventListener('input', displayResults);
+
+        // Initial display of results
+        displayResults();
+
+        // Event listener for exit button
+        document.getElementById('exit-button').addEventListener('click', () => {
+            // Handle exit action
+            console.log('Exit button clicked');
+        });
+    </script>
+</body>
+</html>
