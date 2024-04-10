@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Face</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: black;
+}
+.face {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eyes {
+  position: relative;
+  top: -40px;
+  display: flex;
+}
+.eyes .eye {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: block;
+  background: #fff;
+  margin: 0 15px;
+  border-radius: 50%;
+}
+.eyes .eye::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: #000;
+  border-radius: 50%;
+}
+.eyebrow {
+  position: relative;
+  /* top: 90px; Adjust top position
+  width: 50px; Adjust width
+  height: 10px; Adjust height */
+  background: white;
+  border-radius: 10px;
+  transform-origin: center;
+}
+.eyebrow.left {
+  left: 120px; /* Adjust left position for left eyebrow */
+  transform: rotate(-45deg); /* Adjust rotation for left eyebrow */
+}
+.eyebrow.right {
+  right: 1200px; /* Adjust right position for right eyebrow */
+  transform: rotate(45deg); /* Adjust rotation for right eyebrow */
+}
+</style>
+</head>
+<body>
+<div class="face">
+    <div class="eyes">
+        <div class="eye"></div>
+        <div class="eye"></div>
+    </div>
+
+    <div class="eyebrow left"></div>
+    <div class="eyebrow right"></div>
+</div>
+
+<script>
+document.querySelector("body").addEventListener("mousemove", eyeball);
+
+function eyeball(event) {
+    'use strict';
+    var eye = document.querySelectorAll(".eye");
+    eye.forEach(function (eye) {
+        let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2)
+        let y = (eye.getBoundingClientRect().top) + (eye.clientHeight / 2);
+        let radian = Math.atan2(event.pageX - x, event.pageY - y);
+        let rot = (radian * (180 / Math.PI) * -1) + 270;
+        eye.style.transform  = "rotate("+ rot +"deg)"
+    })
+}
+</script>
+</body>
+</html>
