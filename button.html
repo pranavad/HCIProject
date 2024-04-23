@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cursor Movement Test</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Hide scrollbars */
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .box {
+    width: 45%;
+    height: 80%;
+    background-color: #f0f0f0;
+    border: 2px solid #333;
+    box-sizing: border-box;
+  }
+
+  #cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 9999;
+    visibility: hidden; /* Initially hidden */
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="box" id="box1"></div>
+    <div class="box" id="box2"></div>
+  </div>
+
+  <!-- Cursor element -->
+  <div id="cursor"></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="cursor.js"></script>
+</body>
+</html>
